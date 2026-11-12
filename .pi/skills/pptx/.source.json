@@ -1,0 +1,13 @@
+{
+    "repo":  "https://github.com/anthropics/skills",
+    "path":  "skills/pptx",
+    "commit":  "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+    "commitDate":  "2026-11-06T22:32:28Z",
+    "commitSubject":  "Move Office skills to the Apache 2.0 license (#2146)",
+    "tree":  "a24a49b228a479cc45a875ff000648e6bcdd5bb0",
+    "archive":  "https://codeload.github.com/anthropics/skills/tar.gz/2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+    "installedAt":  "2026-11-12T09:17:38Z",
+    "installedBy":  "pi agent (powershell: Invoke-WebRequest + tar.exe)",
+    "fileCount":  56,
+    "note":  "Installed as-is from the upstream tarball. No dependencies installed; run scripts with the Python/Node available locally."
+}
