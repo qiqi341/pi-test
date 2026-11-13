@@ -20,36 +20,45 @@ GitHub: qiqi341
 ### 任务一：本地安装与初次启动
 在 PowerShell 中通过官方脚本一键安装完成后，关掉了旧终端，并在新建的练习目录 pi-test 下唤出 Pi。
 刚启动时，由于还未绑定任何模型，界面提示了 No models available，同时后台尝试下载 fd 和 ripgrep 时出现了超时警告。不过这不影响核心程序运行，底部状态栏清楚地显示了当前工作路径，说明客户端已就绪，等待接入“大脑”。
-![Uploading S1.png…]()
-
+[个人仓库](images/S1.png)
+<img width="1480" height="759" alt="image" src="https://github.com/user-attachments/assets/a0e6f161-684a-4522-a031-1ec0f4bda9f6" />
+<img width="1380" height="759" alt="image" src="https://github.com/user-attachments/assets/a5f27eb6-08c8-4fc1-bcff-1d61085d5f6a" />
 
 ### 任务二：配置 DeepSeek 模型并完成会话
 前往 DeepSeek 开放平台生成 API Key 后，在 Pi 终端输入 /login，选择使用 API Key 登录，并选中了 DeepSeek 提供商。粘贴密钥回车后，提示配置成功。
 
 随后发送了“Hello?”作为测试，模型立即给出了友好的回复。观察底部状态栏，确认当前挂载的模型是 deepseek-v4-pro。
+<img width="1479" height="760" alt="image" src="https://github.com/user-attachments/assets/c19f576b-45da-45c0-b8f5-5b78f16ab861" />
 
 ### 任务三：动态切换模型与思考级别
 输入 `/thinking` 打开Thinking Level菜单，将级别切换为 high。发送验证指令查看当前thinking level，确认 `PI_REASONING_LEVEL=high`，观察到底部状态栏的 thinking 标识发生了改变，这在处理复杂代码逻辑时能提供更深的思考过程。
 
 接着通过 /model 命令调出选择器，将当前模型从 deepseek-v4-pro 切换成了响应更快的 deepseek-flash，切换后再次对话，验证依然畅通，后续任务截图右下角状态栏可见切换结果。
+<img width="1479" height="898" alt="image" src="https://github.com/user-attachments/assets/94d76af1-c583-463c-a1a4-894bd56d233e" />
 
 
 ### 任务四：代码引用与多模态识图测试
 代码引用：在目录下新建了 hello.py（包含加法函数），在输入框敲击 @ 唤出文件列表并选中它。发送提示词后，AI 准确解释了代码的作用，并算出了结果 5。
+<img width="1479" height="1105" alt="image" src="https://github.com/user-attachments/assets/2bace7cf-d7e7-459c-913e-ca1affd0e1a3" />
 
 图片识别：截取了一张带有颜色和数字的小图到剪贴板，在终端按 Alt+V 粘贴，确认输入框出现了图片附件标识。发送“描述图片”的指令后，模型成功识别出了图中的信息，这证明 Pi 终端支持直接进行多模态交互
-
+<img width="1479" height="1101" alt="image" src="https://github.com/user-attachments/assets/4ede4e08-8f0f-496b-80c6-264c573afe63" />
 
 ### 任务五：安装并使用一个插件
 为了测试插件系统，从官方 Package 库找到了 pi-web-access（赋予大模型联网抓取网页的能力）。在终端执行 pi install npm:pi-web-access 安装后，完全退出并重新启动了 Pi。
 
 再次启动时，确认 pi-web-access 已经成功挂载。随后让 AI 抓取一个网页的标题，AI 顺利调用了相关工具并返回了结果，证明插件运行正常。
+<img width="1125" height="303" alt="image" src="https://github.com/user-attachments/assets/bb464e46-9f88-4b93-9d7f-90ff3543db46" />
 
 ### 任务六：让AI安装PPT Skill
 安装：向 AI 下达了指令，要求从 GitHub 下载 anthropics/skills 下的 pptx 完整目录。由于 Windows 原生环境没有 Bash，AI 在报错后自动调整策略，启用了 PowerShell 进行下载。最终，56 个文件（含支持脚本和 .source.json 记录）被完整无缺地放置在了 D:\学习\系统设计与分析\pi-test\.pi\skills\pptx。
+<img width="1256" height="1020" alt="image" src="https://github.com/user-attachments/assets/9fe585c6-8079-4f11-b931-1e6c929b0004" />
+<img width="1256" height="764" alt="image" src="https://github.com/user-attachments/assets/c5cf4b4f-8d69-4aa5-9b9f-ca484a40464b" />
 
 
 发现与调试：为了验证加载机制，彻底退出并重启了 Pi。启动时 [Skills] 区域清晰显示了 pptx。随后我输入 /skill:pptx 请说明这个 Skill 的名称、用途和所在目录，模型基于 Skill 说明给出了准确回答，并报出了正确的本地安装路径。
+<img width="1460" height="665" alt="image" src="https://github.com/user-attachments/assets/d9449cd1-ea48-4b1e-b0de-7c9c78d738fc" />
+<img width="1388" height="759" alt="image" src="https://github.com/user-attachments/assets/18610a92-2b06-4064-adbd-e635e25bcd80" />
 
 代码托管：最后，在本地终端使用 git init 将项目初始化，通过 git add 和 git commit 提交了所有更改，并将代码推送到了本人的 GitHub 远程仓库 qiqi341/pi-test 中，完成了作业的云端备份。
 
